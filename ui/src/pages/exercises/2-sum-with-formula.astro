@@ -1,0 +1,57 @@
+---
+import Layout from '../..//layouts/Layout.astro';
+import Exercise from '../../components/Exercise.vue';
+export const title = "Sum with formula"
+---
+
+<Layout title={title}>
+	<main>
+		<h1>{title}</h1>
+		<div class="instructions">
+			Write a function <code>String sumWithFormula(int first, int second)</code>
+			 that returns the written out sum of the given integers and the sum.
+			  As an example, the function call  <code>sumWithFormula(1, 2)</code> should return the string 1+2=3 and the function call sumWithFormula(1, 1) should return the string <code>1+1=2</code>. Note! Do not add spaces to the returned string.
+	<Exercise client:only title={title}/>
+		</div>	
+		
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1.5rem;
+		max-width: 80ch;
+	}
+	h1 {
+		font-size: 3rem;
+		font-weight: 800;
+		margin: 0;
+	}
+
+	.instructions {
+		line-height: 1.6;
+		margin: 1rem 0;
+		border: 1px solid rgba(var(--accent), 25%);
+		background-color: white;
+		padding: 1rem;
+		border-radius: 0.4rem;
+	}
+	.instructions code {
+		font-size: 0.875em;
+		font-weight: bold;
+		background: rgba(var(--accent), 12%);
+		color: rgb(var(--accent));
+		border-radius: 4px;
+		padding: 0.3em 0.45em;
+	}
+	.instructions strong {
+		color: rgb(var(--accent));
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 1rem;
+		padding: 0;
+	}
+</style>

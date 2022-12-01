@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro';
+import type { AstroInstance } from 'astro';
+import Exercises from '../components/Exercises.vue';
+export interface Page extends AstroInstance{
+	title:string;
+}
+const exercises = await Astro.glob('./exercises/*.astro') as Page[];
+
+---
+
+<Layout title="Exercises">
+	<main>
+		<h1><span class="text-gradient">Exercise platform</span></h1>
+
+<Exercises client:load exercises={exercises}></Exercises>
+		<script lang="ts" setup>
+		
+		</script>
+		
+	</main>
+</Layout>
+<script>
+
+</script>
+<style>
+	main {
+		margin: auto;
+		padding: 1.5rem;
+		max-width: 60ch;
+	}
+	h1 {
+		font-size: 3rem;
+		font-weight: 800;
+		margin: 0;
+	}
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+
+</style>

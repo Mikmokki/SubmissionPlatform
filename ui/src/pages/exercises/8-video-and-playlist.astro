@@ -1,0 +1,80 @@
+---
+import Layout from '../..//layouts/Layout.astro';
+import Exercise from '../../components/Exercise.vue';
+export const title = "Video and playlist"
+---
+
+<Layout title={title}>
+	<main>
+		<h1>{title}</h1>
+		<div class="instructions">
+			<p>Implement the classes <code>Video</code> and <code>Playlist</code> as follows. The class <code>Video</code> should have a name (String), a duration in seconds (int), a constructor with named arguments, and a <code>toString</code> method. The default name should be "Unknown" and the default length should be 0. The class should work as follows.</p>
+			<div data-language="text"><code class="language-text">print(Video(name: "One second clip", duration: 1));
+				print(Video(name: "Hello again!", duration: 84));</code>
+			</div>
+				<p>With the code above, the output should be as follows.</p>
+				<div data-language="text"><code class="language-text">One second clip (1 second)
+					Hello again! (84 seconds)</code>
+				</div>
+					<p>The class <code>Playlist</code> should contain a list of videos, provide a default (no argument) constructor, and offer the following methods: (1) <code>void add(Video video)</code> that adds a video to the playlist, (2) <code>bool has(String name)</code> that returns true if the list of videos contains a video with the given name, and (3) <code>int duration()</code> that returns the sum of durations of the videos in the playlist. The class should work as follows.</p>
+					<div data-language="text">
+						<code class="language-text">final playlist = Playlist(); <br>
+						print(playlist.has("One second clip")); <br>
+						print(playlist.duration()); <br>
+						playlist.add(Video(name: "One second clip", duration: 1)); <br>
+						playlist.add(Video(name: "Hello again!", duration: 84)); <br>
+						print(playlist.has("One second clip"));
+					</code>
+					</div>
+						<p>With the code above, the output should be as follows.</p>
+						<div style="margin-bottom:10px;" data-language="text">
+							<code class="language-text">false
+							0
+							true
+							85
+						</code>
+					</div>
+						<Exercise client:only title={title}/>
+		</div>	
+		
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1.5rem;
+		max-width: 80ch;
+	}
+	h1 {
+		font-size: 3rem;
+		font-weight: 800;
+		margin: 0;
+	}
+
+	.instructions {
+		line-height: 1.6;
+		margin: 1rem 0;
+		border: 1px solid rgba(var(--accent), 25%);
+		background-color: white;
+		padding: 1rem;
+		border-radius: 0.4rem;
+	}
+	.instructions code {
+		font-size: 0.875em;
+		font-weight: bold;
+		background: rgba(var(--accent), 12%);
+		color: rgb(var(--accent));
+		border-radius: 4px;
+		padding: 0.3em 0.45em;
+	}
+	.instructions strong {
+		color: rgb(var(--accent));
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 1rem;
+		padding: 0;
+	}
+</style>

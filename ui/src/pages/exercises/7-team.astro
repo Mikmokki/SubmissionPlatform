@@ -1,0 +1,65 @@
+---
+import Layout from '../..//layouts/Layout.astro';
+import Exercise from '../../components/Exercise.vue';
+export const title = "Team"
+---
+
+<Layout title={title}>
+	<main>
+		<h1>{title}</h1>
+		<div class="instructions">
+			<p>Create a class <code>Team</code> and implement the two following constructors (and necessary properties) to the class. The default constructor should have three properties: (1) the name of the team (String), (2) the home town of the team (String), and (3) the year the team was formed (int). The named constructor <code>nameAndYear</code> should have two properties: (1) the name of the team (String) and (2) the year the team was formed (int). In the case of the named constructor, the home town of the team must be "Unknown".</p>
+			<p>Once completed, add a <code>toString</code> method to the class which leads to outputs outlined by the following examples.</p>
+			<div class="gatsby-highlight" data-language="text">
+					<code class="language-text">final hjk = Team("HJK", "Helsinki", 1907);
+				print(hjk);
+				final secret = Team.nameAndYear("Secret", 1984);
+				print(secret);
+			</code></div>
+				<p>With the code above, the output should be as follows.</p>
+				<div class="gatsby-highlight" data-language="text"><code class="language-text">HJK (Helsinki, 1907)
+					Secret (Unknown, 1984)</code></div>
+			<Exercise client:only title={title}/>
+		</div>	
+		
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1.5rem;
+		max-width: 80ch;
+	}
+	h1 {
+		font-size: 3rem;
+		font-weight: 800;
+		margin: 0;
+	}
+
+	.instructions {
+		line-height: 1.6;
+		margin: 1rem 0;
+		border: 1px solid rgba(var(--accent), 25%);
+		background-color: white;
+		padding: 1rem;
+		border-radius: 0.4rem;
+	}
+	.instructions code {
+		font-size: 0.875em;
+		font-weight: bold;
+		background: rgba(var(--accent), 12%);
+		color: rgb(var(--accent));
+		border-radius: 4px;
+		padding: 0.3em 0.45em;
+	}
+	.instructions strong {
+		color: rgb(var(--accent));
+	}
+	.link-card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+		gap: 1rem;
+		padding: 0;
+	}
+</style>
